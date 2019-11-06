@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="MyAwesomeProject.MainPage">
+<ContentPage
+    x:Class="MyAwesomeProject.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Padding="20" Spacing="20">
+        <!--  Place new controls here  -->
+        <Picker x:Name="myPicker" Title="Demo" />
+
+        <Switch x:Name="mySwitch" />
+
+        <Button Clicked="Button_OnClicked" Text="Tap me" />
+
+        <Button Clicked="Button_OnClicked2" Text="Go to preferences page" />
+
     </StackLayout>
 
 </ContentPage>
