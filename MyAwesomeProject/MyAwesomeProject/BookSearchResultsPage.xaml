@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyAwesomeProject.BookSearchResultsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="#EFEFEF"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                x:Name="booksList"
+                HasUnevenRows="True"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="20"
+                                BackgroundColor="White"
+                                CornerRadius="20"
+                                HasShadow="True">
+                                <StackLayout Margin="20" HorizontalOptions="Center">
+                                    <Image
+                                        HeightRequest="150"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="{Binding Image}" />
+                                    <Label
+                                        FontSize="Small"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding ISBN}"
+                                        TextColor="LightGray"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        FontSize="Large"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Name}"
+                                        VerticalOptions="Center" />
+
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

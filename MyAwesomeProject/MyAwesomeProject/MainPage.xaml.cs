@@ -36,5 +36,10 @@ namespace MyAwesomeProject
         {
             Navigation.PushAsync(new PreferencesPage());
         }
+
+        private void Button_OnClicked3(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SearchPage());
+        }
     }
 }
