@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyAwesomeProject.GamePlayPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+            <Label FontAttributes="Bold" Text="Current player" />
+            <Label x:Name="currentPlayerLabel" Text="" />
+
+            <StackLayout HeightRequest="20" />
+
+            <Label FontAttributes="Bold" Text="Current round" />
+            <Label x:Name="currentRoundLabel" Text="" />
+
+            <StackLayout HeightRequest="20" />
+
+            <Label FontAttributes="Bold" Text="Dice Roll" />
+            <Label x:Name="diceRollLabel" />
+
+            <StackLayout HeightRequest="20" />
+
+            <Button
+                x:Name="diceRollButton"
+                Clicked="Button_OnClicked"
+                Text="Roll Dice" />
+
+            <StackLayout HeightRequest="20" />
+
+            <Label x:Name="player1Label" FontAttributes="Bold" />
+            <Label x:Name="player1ScoreLabel" />
+
+            <StackLayout HeightRequest="20" />
+
+            <Label
+                x:Name="player2Label"
+                FontAttributes="Bold"
+                Text="Current round" />
+            <Label x:Name="player2ScoreLabel" />
+
+
+            <Label x:Name="resultLabel" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

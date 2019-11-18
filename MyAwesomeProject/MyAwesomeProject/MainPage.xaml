@@ -18,6 +18,9 @@
         <Button Clicked="Button_OnClicked2" Text="Go to preferences page" />
 
         <Button Clicked="Button_OnClicked3" Text="Search for books!" />
+
+        <Button Clicked="Button_OnClicked4" Text="Play a game!" />
+
     </StackLayout>
 
 </ContentPage>

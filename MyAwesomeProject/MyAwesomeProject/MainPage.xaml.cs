@@ -41,5 +41,10 @@ namespace MyAwesomeProject
         {
             Navigation.PushAsync(new SearchPage());
         }
+
+        private void Button_OnClicked4(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GameStartPage());
+        }
     }
 }
