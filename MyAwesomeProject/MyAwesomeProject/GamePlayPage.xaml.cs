@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Plugin.SimpleAudioPlayer;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -95,7 +98,27 @@ namespace MyAwesomeProject
                 }
 
                 diceRollButton.IsVisible = false;
+
+                // https://github.com/adrianstevens/Xamarin-Plugins/tree/master/SimpleAudioPlayer
+
+                ISimpleAudioPlayer player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                player.Load(GetStreamFromFile("tada.wav"));
+                player.Play();
             }
+            else
+            {
+                ISimpleAudioPlayer player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                player.Load(GetStreamFromFile("dice.wav"));
+                player.Play();
+            }
+        }
+
+
+        Stream GetStreamFromFile(string filename)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            var stream = assembly.GetManifestResourceStream("MyAwesomeProject." + filename);
+            return stream;
         }
     }
 }
