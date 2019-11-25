@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout Padding="20">
+        <StackLayout
+            x:Name="gameStack"
+            Padding="20"
+            Opacity="0">
 
             <Label FontAttributes="Bold" Text="Current player" />
             <Label x:Name="currentPlayerLabel" Text="" />
@@ -27,6 +30,7 @@
             <Button
                 x:Name="diceRollButton"
                 Clicked="Button_OnClicked"
+                Opacity="0"
                 Text="Roll Dice" />
 
             <StackLayout HeightRequest="20" />

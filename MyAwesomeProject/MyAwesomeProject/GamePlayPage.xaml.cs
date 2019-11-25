@@ -35,10 +35,44 @@ namespace MyAwesomeProject
             player2Label.Text = Preferences.Get(player2SettingName, "");
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            diceRollButton.TranslateTo(0, -20, 1);
+
+            await gameStack.FadeTo(1, 1000);
+
+            diceRollButton.TranslateTo(0, 20, 1000);
+            diceRollButton.FadeTo(1, 1000);
+        }
+
+
         private Random rand = new Random();
 
-        private void Button_OnClicked(object sender, EventArgs e)
+
+        private async void diceRollAnimate()
         {
+            await diceRollButton.TranslateTo(5, 0, 100);
+            await diceRollButton.TranslateTo(-10, 0, 100);
+            await diceRollButton.TranslateTo(0, 5, 100);
+            await diceRollButton.TranslateTo(0, -10, 100);
+            await diceRollButton.ScaleTo(1.2, 200);
+            await diceRollButton.TranslateTo(5, 0, 100);
+            await diceRollButton.TranslateTo(-10, 0, 100);
+            await diceRollButton.TranslateTo(0, 5, 100);
+            await diceRollButton.TranslateTo(0, -10, 100);
+            await diceRollButton.ScaleTo(1, 200);
+        }
+
+        private async void Button_OnClicked(object sender, EventArgs e)
+        {
+            ISimpleAudioPlayer dicePlayer = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            dicePlayer.Load(GetStreamFromFile("dice.wav"));
+            dicePlayer.Play();
+
+            diceRollAnimate();
+
             int diceRoll = rand.Next(1, 6);
 
             diceRollLabel.Text = diceRoll.ToString();
@@ -97,6 +131,7 @@ namespace MyAwesomeProject
                     resultLabel.Text = "It was a tie!";
                 }
 
+                await diceRollButton.FadeTo(0, 2000);
                 diceRollButton.IsVisible = false;
 
                 // https://github.com/adrianstevens/Xamarin-Plugins/tree/master/SimpleAudioPlayer
@@ -105,14 +140,7 @@ namespace MyAwesomeProject
                 player.Load(GetStreamFromFile("tada.wav"));
                 player.Play();
             }
-            else
-            {
-                ISimpleAudioPlayer player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-                player.Load(GetStreamFromFile("dice.wav"));
-                player.Play();
-            }
         }
-
 
         Stream GetStreamFromFile(string filename)
         {
